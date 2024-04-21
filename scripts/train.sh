@@ -1,0 +1,1 @@
+python train.py --camera 'realsense' --log_dir '/path/to/save/the/model/weights' --dataset_root '/path/to/SuctionNet/dataset' --batch_size 64

@@ -1,0 +1,2 @@
+python inference.py --split 'test_similar' --network_ver 'v1.0' --epoch 50 --dump_dir 'v1.0' --gpu_id '0' --camera 'realsense' --voxel_size 0.002 --dataset_root '/path/to/SuctionNet/dataset' --seg_model 'uois'
+python eval.py --split 'test_similar' --camera 'realsense' --dump_dir 'v1.0' --dataset_root '/path/to/SuctionNet/dataset'

@@ -1,0 +1,10 @@
+numpy
+pillow
+scikit-learn
+tqdm
+matplotlib
+open3d
+multiprocess
+opencv-python
+Cython
+tensorboard
