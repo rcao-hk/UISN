@@ -4,15 +4,16 @@ Official repository for paper "Uncertainty-aware Suction Grasping for Cluttered 
 
 ![Image Title](https://github.com/rcao-hk/UISN/blob/master/framework.png)
 
-# Dataset
+# Requirements
+## Dataset
 
 Download data and labels from our [SuctionNet webpage](https://graspnet.net/suction).
 
-# Environment
+## Environment
 
 The code has been tested with `CUDA 11.6` and `pytorch 1.13.0` on ubuntu `20.04`
 
-# Installation
+## Installation
 
 Create new enviornment:
 ```bash
@@ -42,21 +43,21 @@ git clone https://github.com/graspnet/suctionnetAPI
 cd suctionnetAPI
 pip install .
 ```
-# Data Preparation
+## Data Preparation
 1. Precompute normal map for scenes:
 ```bash
 cd dataset
 python generate_normal_data.py --dataset_root '/path/to/SuctionNet/dataset'
 ```
-2. Download suction label and dense point clouds from https://graspnet.net/suction, and extract files into dataset root.
-3. Precompute suction label for scenes:
+2. Precompute suction label for scenes:
 ```bash
 cd dataset
 python generate_suction_data.py --dataset_root '/path/to/SuctionNet/dataset'
 ```
-4. Download segmentation mask from [UOIS](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155187973_link_cuhk_edu_hk/EcLzwCXsPUdNiix_mxqwVmcBODekt_Qfj6DSWPgHzqXUGA?e=iC1ouY), [UOAIS](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155187973_link_cuhk_edu_hk/EcYqOfP2P5NIn9AGgNbWj1IBSqnDRz-cIfajjJrYMXrDXw?e=SUXnSE).
+3. Download segmentation mask from [UOIS](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155187973_link_cuhk_edu_hk/EcLzwCXsPUdNiix_mxqwVmcBODekt_Qfj6DSWPgHzqXUGA?e=iC1ouY), [UOAIS](https://mycuhk-my.sharepoint.com/:u:/g/personal/1155187973_link_cuhk_edu_hk/EcYqOfP2P5NIn9AGgNbWj1IBSqnDRz-cIfajjJrYMXrDXw?e=SUXnSE).
 
-# Training
+# Uasge
+## Training
 
 For training, use the following command:
 
@@ -64,16 +65,18 @@ For training, use the following command:
 bash scripts/train.sh
 ```
 
+## Evaluation
 For evaluation, use the following command, where 'xxxx' denotes splits:'seen', 'similar' or 'novel': 
 
 ```
 bash scripts/eval_xxxx.sh
 ```
 
-# Pre-trained Models
+## Pre-trained Models
 Comming soon.
 
-## Citation
+
+# Citation
 
 if you find our work useful, please cite
 
@@ -90,4 +93,5 @@ if you find our work useful, please cite
   doi={10.1109/LRA.2024.3385609}}
 
 ```
-
+# Contact
+If you have any questions about this work, feel free to contact Rui Cao at rcao@mae.cuhk.edu.hk
