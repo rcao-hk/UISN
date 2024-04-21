@@ -2,7 +2,7 @@
 
 Official repository for paper "Uncertainty-aware Suction Grasping for Cluttered Scenes" 
 
-![Image Title](https://github.com/rcao_hk/UISN/blob/master/framework.png)
+![Image Title](https://github.com/rcao-hk/UISN/blob/master/framework.png)
 
 # Dataset
 
