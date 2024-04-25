@@ -1,6 +1,4 @@
-import torch
 import torch.nn as nn
-import MinkowskiEngine as ME
 from aleatoric_loss import AleatoricLoss
 
 aleatoric_criterion = AleatoricLoss(is_log_sigma=False, res_loss='l1', nb_samples=10)

@@ -99,10 +99,9 @@ print(len(TRAIN_DATALOADER), len(TEST_DATALOADER))
 # Init the model and optimzier
 from model import SuctionNet_prob
 from loss import get_loss
-net = SuctionNet_prob(feature_dim=512)
+net = SuctionNet_prob(feature_dim=cfgs.seed_feat_dim)
 net.to(device)
 
-# # v0.2.7.1 0.5 v0.2.7.3 0.1
 dropout_prob = 0.1
 import torch.nn.functional as F
 def dropout_hook_wrapper(module, sinput, soutput):
@@ -115,7 +114,6 @@ for module in net.modules():
         module.register_forward_hook(dropout_hook_wrapper)
         
 
-# Load the Adam optimizer
 optimizer = optim.Adam(net.parameters(), lr=cfgs.learning_rate, weight_decay=cfgs.weight_decay)
 lr_scheduler = CosineAnnealingLR(optimizer, T_max=16, eta_min=0.0)
 
@@ -138,8 +136,6 @@ TEST_WRITER = SummaryWriter(os.path.join(cfgs.log_dir, 'test'))
 
 def train_one_epoch():
     stat_dict = {}  # collect statistics
-    # adjust_learning_rate(optimizer, EPOCH_CNT)
-    # bnm_scheduler.step() # decay BN momentum
     # set model to training mode
     net.train()
     for batch_idx, batch_data_label in enumerate(TRAIN_DATALOADER):
@@ -151,26 +147,8 @@ def train_one_epoch():
             else:
                 batch_data_label[key] = batch_data_label[key].to(device)
 
-        # # Forward pass v0.2.7.2
         end_points = net(batch_data_label)
 
-        # v0.2.6
-        # in_data = ME.TensorField(features=batch_data_label['feats'], coordinates=batch_data_label['coors'],
-        #                         quantization_mode=ME.SparseTensorQuantizationMode.UNWEIGHTED_AVERAGE)
-
-        # end_points = batch_data_label
-        
-        # v0.2.6
-        # score, emb_mu, emb_sigma = net(in_data)
-        # end_points['score_pred'] = score
-        # end_points['emb_mu_dense'] = emb_mu.slice(in_data)
-        # end_points['emb_sigma_dense'] = emb_sigma.slice(in_data)
-        
-        # v0.2.7
-        # score, sigma = net(in_data)
-        # end_points['score_pred'] = score
-        # end_points['sigma_pred'] = sigma
-        
         # Compute loss and gradients, update parameters.
         loss, end_points = get_loss(end_points)
         loss.backward()
@@ -209,7 +187,6 @@ def evaluate_one_epoch():
             else:
                 batch_data_label[key] = batch_data_label[key].to(device)
 
-        # Forward pass v0.2.7.2
         with torch.no_grad():
             end_points = net(batch_data_label)
 

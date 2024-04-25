@@ -9,7 +9,7 @@ from models.resunet14 import MinkUNet14D
 
 
 class SuctionNet(nn.Module):
-    def __init__(self, feature_dim=256, is_training=True):
+    def __init__(self, feature_dim=256):
         super().__init__()
         self.feature_dim = feature_dim
         self.backbone = MinkUNet14D(in_channels=3, out_channels=self.feature_dim, D=3)
@@ -43,7 +43,7 @@ class SuctionScoringNet(nn.Module):
 
 
 class SuctionNet_prob(nn.Module):
-    def __init__(self, feature_dim=256, is_training=True):
+    def __init__(self, feature_dim=256):
         super().__init__()
         self.feature_dim = feature_dim
         self.backbone = MinkUNet14D(in_channels=3, out_channels=self.feature_dim, D=3)
