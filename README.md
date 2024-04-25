@@ -1,13 +1,13 @@
 # Uncertainty-aware Suction Grasping for Cluttered Scenes [RA-Letter 2024]
 
-Official repository for paper "Uncertainty-aware Suction Grasping for Cluttered Scenes" 
+Official repository for the paper "Uncertainty-aware Suction Grasping for Cluttered Scenes" 
 
 ![Image Title](https://github.com/rcao-hk/UISN/blob/master/framework.png)
 
 # Requirements
 ## Dataset
 
-Download data and labels from our [SuctionNet webpage](https://graspnet.net/suction).
+Download data and labels from [SuctionNet webpage](https://graspnet.net/suction).
 
 ## Environment
 
