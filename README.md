@@ -73,7 +73,7 @@ bash scripts/eval_xxxx.sh
 ```
 
 ## Pre-trained Models
-Comming soon.
+The pre-trained models for GraspNet dataset can be found [here](https://mycuhk-my.sharepoint.com/:f:/g/personal/1155187973_link_cuhk_edu_hk/Eitk9iMOUABMqEonSZ4hvlUBhJCnLrYup9ScMobDjo2ggA?e=l79XYJ).
 
 
 # Citation
